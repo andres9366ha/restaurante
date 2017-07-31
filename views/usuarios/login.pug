@@ -1,0 +1,35 @@
+html
+  head
+    title=Login
+    link(
+      href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css',
+      rel='stylesheet'
+    )
+  body
+    div.container
+
+      div.page-header
+        h1 Login
+
+        if message
+                div.alert.alert-danger #{message}!
+      form.form-horizontal(action='/usuarios', method='post', role='form')
+
+        div.form-group
+          label.col-sm-4 Username
+          div.col-sm-8
+            input.form-control(
+              placeholder='Ingrese su username',
+              required=true,
+              name='username',
+              type='text')
+        div.form-group
+          label.col-sm-4 Contraseña
+          div.col-sm-8
+            input.form-control(placeholder='Ingrese su contraseña',
+              required=true,
+              name='password',
+              type='password')
+        div.form-group
+          div.col-sm-offset-4.col-sm-8
+            button.btn.btn-primary(type='submit') Iniciar sesión

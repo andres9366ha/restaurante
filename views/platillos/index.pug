@@ -1,0 +1,35 @@
+html
+  head
+    title=Login
+    link(
+      href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css',
+      rel='stylesheet'
+    )
+  body
+  div.container
+
+    div.page-header
+      h1 Meseros
+div.col-md-offset-1.col-md-10.col-md-offset-1
+  table.table.table-striped
+    tr
+      th Nombre
+      th Descripción
+      th Precio
+      th Acciones
+    each platillo in platillos
+      tr
+        td= platillo.name
+        td= platillo.description
+        td= platillo.price
+        td
+          a(href='/platillos/' + platillo.id)
+             button Editar
+
+
+          form(method="POST" action='/platillos/' + platillo.id + '?_method=DELETE')
+            button(type="submit" style="margin-left: 30%; margin-top: -17%")
+             a Eliminar
+
+div.col-md-offset-10.col-md-2
+  a(href='/usuarios/index') Volver

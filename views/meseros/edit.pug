@@ -1,0 +1,38 @@
+html
+  head
+    title=Login
+    link(
+      href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css',
+      rel='stylesheet'
+    )
+  body
+    div.container
+
+      div.page-header
+        h1 Actualizar Mesero
+
+        if message
+                div.alert.alert-success #{message}
+      form.form-horizontal(action="/meseros/"+mesero.id + '?_method=PUT' method="POST")
+        div.form-group
+          label.col-sm-4 Nombre
+          div.col-sm-8
+            input.form-control(
+              placeholder='Ingrese el nombre del mesero',
+              required=true,
+              name='name',
+              type='text',
+              value=mesero.name)
+        div.form-group
+          label.col-sm-4 Username
+          div.col-sm-8
+            input.form-control(placeholder='Ingrese el username para el mesero',
+              required=true,
+              name='username',
+              type='text',
+              value=mesero.username)
+        div.form-group
+          div.col-sm-offset-4.col-sm-8
+            button.btn.btn-primary(type='submit') Actualizar
+        div.pull-right
+          a(href='/usuarios/index') Volver

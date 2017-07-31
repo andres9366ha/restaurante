@@ -1,0 +1,48 @@
+html
+  head
+    title=Login
+    link(
+      href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css',
+      rel='stylesheet'
+    )
+  body
+    div.container
+
+      div.page-header
+        h1 Actualizar Platillo
+
+        if message
+                div.alert.alert-success #{message}
+      form.form-horizontal(action="/platillos/"+platillo.id + '?_method=PUT' method="POST")
+
+        div.form-group
+          label.col-sm-4 Nombre
+          div.col-sm-8
+            input.form-control(
+              placeholder='Ingrese el nombre del platillo',
+              required=true,
+              name='name',
+              type='text',
+              value=platillo.name)
+        div.form-group
+          label.col-sm-4 Descripción
+          div.col-sm-8
+            input.form-control(
+              placeholder='Ingrese la descripción del platillo',
+              required=true,
+              name='description',
+              type='text',
+              value=platillo.description)
+        div.form-group
+          label.col-sm-4 Precio
+          div.col-sm-8
+            input.form-control(placeholder='Ingrese el precio del platillo',
+              required=true,
+              name='price',
+              type='number',
+              value=platillo.price)
+        div.form-group
+          div.col-sm-offset-4.col-sm-8
+            button.btn.btn-primary(type='submit') Actualizar
+        div.pull-right
+          a(href='/usuarios/index') Volver

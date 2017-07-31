@@ -1,0 +1,33 @@
+html
+  head
+    title=Login
+    link(
+      href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css',
+      rel='stylesheet'
+    )
+  body
+  div.container
+
+    div.page-header
+      h1 Meseros
+div.col-md-offset-1.col-md-10.col-md-offset-1
+  table.table.table-striped
+    tr
+      th Nombre
+      th Username
+      th Acciones
+    each mesero in meseros
+      tr
+        td= mesero.name
+        td= mesero.username
+        td
+          a(href='/meseros/' + mesero.id)
+             button Editar
+
+
+          form(method="POST" action='/meseros/' + mesero.id + '?_method=DELETE')
+            button(type="submit" style="margin-left: 15%; margin-top: -9%")
+             a Eliminar
+
+div.col-md-offset-10.col-md-2
+  a(href='/usuarios/index') Volver
